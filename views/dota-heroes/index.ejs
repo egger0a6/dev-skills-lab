@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dota 2 Heroes</title>
+</head>
+<body>
+  <h1>Dota 2 Heroes</h1>
+  <table class="table table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Release</th>
+        <th scope="col">Version</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% heroes.forEach((hero) => { %>
+        <tr>
+          <th scope="row"><a href="/dota-heroes/<%= hero._id %> "><%= hero.name %></a></th>
+          <td><%= hero.release.toDateString() %> </td>
+          <td><%= hero.version %> </td>
+        </tr>
+      <% }); %> 
+    </tbody>
+  </table>
+  <a href="/dota-heroes/new">Add Hero</a>
+</body>
+</html>

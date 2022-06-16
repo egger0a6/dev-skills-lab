@@ -3,7 +3,7 @@ import { DotaHero } from "../models/dota-heroes.js";
 function index(req, res) {
   DotaHero.find({})
   .then((heroes) => {
-    res.render("/dota-heroes/index", {
+    res.render("dota-heroes/index", {
       heroes: heroes,
     });
   })
@@ -28,7 +28,7 @@ function create(req, res) {
 function show(req, res) {
   DotaHero.findById(req.params.id)
   .then((hero) => {
-    res.render("/dota-heroes/show", {
+    res.render("dota-heroes/show", {
       hero: hero,
     });
   })
@@ -39,7 +39,7 @@ function show(req, res) {
 }
 
 function newHero(req, res) {
-  res.render("/dota-heroes/new");
+  res.render("dota-heroes/new");
 }
 
 export {
