@@ -5,18 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <title>New Hero</title>
+  <title>Edit Hero</title>
 </head>
 <body>
-<h1>New Hero</h1>
-  <form action="/dota-heroes" method="post" autocomplete="off">
+<h1>Edit Hero</h1>
+  <form action="/dota-heroes/<%= hero._id %>?_method=PUT" method="post" autocomplete="off">
     <label for="">Name:</label>
-    <input type="text" name="name">
+    <input value="<%= hero.name %>" type="text" name="name">
     <label for="">Release Date:</label>
     <input type="date" name="release">
     <label for="">Game Version:</label>
-    <input type="text" name="version">
-    <button type="submit">Save Hero</button>
+    <input value="<%= hero.version %>" type="text" name="version">
+    <button type="submit">Update Hero</button>
   </form>
+  <a href="/dota-heroes/<%= hero._id %>">Cancel</a>
 </body>
 </html>
