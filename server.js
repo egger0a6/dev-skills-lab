@@ -14,11 +14,26 @@ import { router as dotaHeroesRouter } from './routes/dota-heroes.js'
 const app = express()
 
 // view engine setup
+const __dirname = path.resolve();
+
 app.set(
   'views',
   path.join(path.dirname(fileURLToPath(import.meta.url)), 'views')
 )
 app.set('view engine', 'ejs')
+
+app.use(
+  "/css",
+  express.static(path.join(__dirname, "node_modules/bootstrap/dist/css"))
+)
+app.use(
+  "/js",
+  express.static(path.join(__dirname, "node_modules/bootstrap/dist/js"))
+)
+app.use(
+  "/js", 
+  express.static(path.join(__dirname, "node_modules/jquery/dist"))
+)
 
 // middleware
 app.use(logger('dev'))
