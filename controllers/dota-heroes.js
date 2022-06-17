@@ -42,9 +42,21 @@ function newHero(req, res) {
   res.render("dota-heroes/new");
 }
 
+function deleteHero(req, res) {
+  DotaHero.findByIdAndDelete(req.params.id)
+  .then((hero) => {
+    res.redirect("/dota-heroes");
+  })
+  .catch((error) => {
+    console.log(error);
+    res.redirect("/dota-heroes");
+  })
+}
+
 export {
   index,
   create,
   show,
-  newHero as new
+  newHero as new,
+  deleteHero as delete,
 }

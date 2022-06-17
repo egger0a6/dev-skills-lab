@@ -9,20 +9,30 @@
 </head>
 <body>
   <h1>Dota 2 Heroes</h1>
-  <table class="table table-hover">
+  <table class="table table-hover table-bordered">
     <thead class="table-dark">
       <tr>
         <th scope="col">Name</th>
         <th scope="col">Release</th>
         <th scope="col">Version</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <% heroes.forEach((hero) => { %>
         <tr>
-          <th scope="row"><a href="/dota-heroes/<%= hero._id %> "><%= hero.name %></a></th>
-          <td><%= hero.release.toLocaleDateString() %> </td>
-          <td><%= hero.version %> </td>
+          <th scope="row" class="table-success"><a href="/dota-heroes/<%= hero._id %> "><%= hero.name %></a></th>
+          <td class="table-info"><%= hero.release.toLocaleDateString() %> </td>
+          <td class="table-info"><%= hero.version %> </td>
+          <td class="table-danger" align="center">
+            <form 
+            action="/dota-heroes/<%= hero._id %>?_method=DELETE"
+            class=""
+            method="post"
+            >
+              <button type="submit" class="btn btn-danger">Remove</button>
+            </form>
+          </td>
         </tr>
       <% }); %> 
     </tbody>
